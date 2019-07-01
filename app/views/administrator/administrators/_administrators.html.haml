@@ -1,0 +1,28 @@
+.pull-left{style: "margin-top:10px;"}= "Menampilkan data #{(@page.to_i - 1) * 50 + 1} - #{(((@page.to_i - 1) * 50 + 50) > @administrators.total_entries) ? @administrators.total_entries : (@page.to_i - 1) * 50 + 50 } dari #{@administrators.total_entries}"
+.pull-right= will_paginate @administrators
+%table.table.table-bordered.table-hover.table-sm
+  %thead
+    %tr
+      %th{style: "width:5%"} No
+      %th{style: "width:15%"} Full Name
+      %th{style: "width:15%"} Username
+      %th{style: "width:25%"} Sections
+      %th{style: "width:20%"} Roles
+      %th{style: "width:5%"} Status
+      %th{style: "width:15%"} Aksi
+  %tbody
+    = render @administrators, page: @page
+.pull-right= will_paginate @administrators
+
+:javascript
+  $(".disable-item").click(function(e){
+    if(!confirm("Disable item?")){
+      e.preventDefault();
+    }
+  });
+
+  $(".enable-item").click(function(e){
+    if(!confirm("Enable item?")){
+      e.preventDefault();
+    }
+  });

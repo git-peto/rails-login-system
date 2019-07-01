@@ -1,0 +1,16 @@
+%tr{class: "#{'table-danger' if administrator.status_id == 0}"}
+  %td= "#{(administrator_counter.to_i + 1) + ((page.to_i - 1) * 50)}"
+  %td= administrator.name
+  %td= administrator.user_name
+  %td= administrator.section_list
+  %td= administrator.role_list
+  %td= administrator.status_caption
+  %td
+    = link_to edit_administrator_administrator_path(administrator), class: "btn btn-primary btn-sm", title: "Edit administrator" do
+      = fa_icon "edit", text: "ubah"
+    - if administrator.status_id == 1
+      = link_to disable_administrator_administrator_path(administrator), class: "btn btn-danger btn-sm disable-item", title: "Disable administrator" do
+        = fa_icon "trash", text: "hapus"
+    - else
+      = link_to enable_administrator_administrator_path(administrator), class: "btn btn-warning btn-sm enable-item", title: "Enable administrator" do
+        = fa_icon "unlock", text: "unlock"

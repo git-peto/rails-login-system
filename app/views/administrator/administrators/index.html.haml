@@ -1,0 +1,10 @@
+.jumbotron.jumbotron-search
+  = form_tag administrator_administrators_path, method: :get, remote: true, class: "form-inline row" do
+    %b &nbsp;&nbsp;&nbsp;ADMINISTRATOR &nbsp;&nbsp;
+    = text_field_tag :search, @search, class: "form-control col-md-3 mb-2 mr-sm-1 mb-sm-0", placeholder: "Administrator Name"
+    = button_tag "Cari", class: "btn btn-primary mr-sm-1", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Memproses data..".html_safe}
+    = link_to new_administrator_administrator_url, class: "btn btn-outline-primary mr-sm-1" do
+      = fa_icon "plus", text: "Tambah"
+
+#administrators.browse
+  = render "administrators"

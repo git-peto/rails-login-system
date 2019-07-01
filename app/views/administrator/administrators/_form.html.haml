@@ -1,0 +1,23 @@
+= form_for [:administrator, @administrator] do |f|
+  .form-group.row
+    = f.label :name, class: "col-md-2 col-form-label"
+    .col-md-5.col-sm-10
+      = f.text_field :name, class: "form-control"
+  .form-group.row
+    = f.label :user_name, class: "col-md-2 col-form-label"
+    .col-md-5.col-sm-10
+      = f.text_field :user_name, class: "form-control"
+  .form-group.row
+    .col-md-2.col-form-label Section
+    .col-md-5.col-sm-10
+      .custom-control.custom-checkbox
+        = check_box_tag 'administrator[section_list][]', "administrator", @administrator.section_list.include?("administrator"), id: "administrator_sections_administrator", class: "custom-control-input"
+        %label.custom-control-label{for: "administrator_sections_administrator"} administrator
+  .form-group.row
+    .col-md-2.col-form-label Role
+    .col-md-5.col-sm-10
+      .custom-control.custom-checkbox
+        = check_box_tag 'administrator[role_list][]', "superuser", @administrator.role_list.include?("superuser"), id: "administrator_roles_superuser", class: "custom-control-input"
+        %label.custom-control-label{for: "administrator_roles_superuser"} superuser
+  = f.button :submit, class: "btn btn-primary" do
+    = fa_icon "save", text: "Simpan"
