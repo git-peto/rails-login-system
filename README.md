@@ -5,19 +5,15 @@
 * Rails version: 5.2.3
 
 # INSTALLATION STEPS
-1. Run bundle
-`bundle install`
+1. Run bundle: `bundle install`
 
-2. Prepare config files
-`Copy config/database.yml.template to config/database.yml`
-`!!! Make sure you rename username and password with your own !!!`
+2. Prepare config files: `Copy config/database.yml.template to config/database.yml`
+!!! Make sure you rename username and password with your own !!!
 
-3. Database
-`rails db:create`
-`rails db:migrate`
+3. Database: `rails db:create then rails db:migrate`
 
-4. Fill administrator data into database
-`rails populate`
+4. Fill administrator data into database: `rails populate`
 
-5. Start server
-`rails s`
+5. Start server: `rails s`
+
+If you have any questions, please kindly email to rrudyhome@gmail.com
